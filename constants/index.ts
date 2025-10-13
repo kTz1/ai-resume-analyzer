@@ -98,7 +98,8 @@ export const AIResponseFormat = `
         score: number; //rate based on ATS suitability
         tips: {
           type: "good" | "improve";
-          tip: string; //give 3-4 tips
+          tip: string; //make it a short "title" for the actual explanation
+          explanation: string; //explain in detail here
         }[];
       };
       toneAndStyle: {

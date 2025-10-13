@@ -18,7 +18,7 @@ const ResumeCard = ({
         </div>
 
         <div className="flex-shrink-0">
-          <ScoreCircle score={feedback.overallScore} />
+          <ScoreCircle score={feedback?.overallScore ?? 0} />
         </div>
       </div>
 
@@ -26,7 +26,7 @@ const ResumeCard = ({
         <div className="w-full h-full">
           <img
             src={imagePath}
-            alt="resume"
+            alt={`Resume for ${jobTitle} at ${companyName}`}
             className="w-full h-[350px] max-sm:h-[200px] object-cover object-top"
           />
         </div>
