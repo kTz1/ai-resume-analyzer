@@ -169,7 +169,7 @@ export const usePuterStore = create<PuterStore>((set, get) => {
     const puter = getPuter();
     if (!puter) {
       setError("Puter.js not available");
-      return;
+      return Promise.resolve(undefined);
     }
 
     set({ isLoading: true, error: null });
@@ -187,7 +187,7 @@ export const usePuterStore = create<PuterStore>((set, get) => {
     const puter = getPuter();
     if (!puter) {
       setError("Puter.js not available");
-      return;
+      return Promise.resolve(undefined);
     }
 
     set({ isLoading: true, error: null });
@@ -216,7 +216,7 @@ export const usePuterStore = create<PuterStore>((set, get) => {
     const puter = getPuter();
     if (!puter) {
       setError("Puter.js not available");
-      return;
+      return Promise.resolve(undefined);
     }
 
     set({ isLoading: true, error: null });
@@ -269,7 +269,7 @@ export const usePuterStore = create<PuterStore>((set, get) => {
     const puter = getPuter();
     if (!puter) {
       setError("Puter.js not available");
-      return;
+      return Promise.resolve(undefined);
     }
     return puter.fs.write(path, data);
   };
@@ -278,7 +278,7 @@ export const usePuterStore = create<PuterStore>((set, get) => {
     const puter = getPuter();
     if (!puter) {
       setError("Puter.js not available");
-      return;
+      return Promise.resolve(undefined);
     }
     return puter.fs.readdir(path);
   };
@@ -287,7 +287,7 @@ export const usePuterStore = create<PuterStore>((set, get) => {
     const puter = getPuter();
     if (!puter) {
       setError("Puter.js not available");
-      return;
+      return Promise.resolve(undefined);
     }
     return puter.fs.read(path);
   };
@@ -296,7 +296,7 @@ export const usePuterStore = create<PuterStore>((set, get) => {
     const puter = getPuter();
     if (!puter) {
       setError("Puter.js not available");
-      return;
+      return Promise.resolve(undefined);
     }
     return puter.fs.upload(files);
   };
@@ -305,7 +305,7 @@ export const usePuterStore = create<PuterStore>((set, get) => {
     const puter = getPuter();
     if (!puter) {
       setError("Puter.js not available");
-      return;
+      return Promise.resolve(undefined);
     }
     return puter.fs.delete(path);
   };
@@ -319,7 +319,7 @@ export const usePuterStore = create<PuterStore>((set, get) => {
     const puter = getPuter();
     if (!puter) {
       setError("Puter.js not available");
-      return;
+      return Promise.resolve(undefined);
     }
     // return puter.ai.chat(prompt, imageURL, testMode, options);
     return puter.ai.chat(prompt, imageURL, testMode, options) as Promise<
@@ -331,7 +331,7 @@ export const usePuterStore = create<PuterStore>((set, get) => {
     const puter = getPuter();
     if (!puter) {
       setError("Puter.js not available");
-      return;
+      return Promise.resolve(undefined);
     }
 
     return puter.ai.chat(
@@ -358,7 +358,7 @@ export const usePuterStore = create<PuterStore>((set, get) => {
     const puter = getPuter();
     if (!puter) {
       setError("Puter.js not available");
-      return;
+      return Promise.resolve(undefined);
     }
     return puter.ai.img2txt(image, testMode);
   };
@@ -367,7 +367,7 @@ export const usePuterStore = create<PuterStore>((set, get) => {
     const puter = getPuter();
     if (!puter) {
       setError("Puter.js not available");
-      return;
+      return Promise.resolve(undefined);
     }
     return puter.kv.get(key);
   };
@@ -376,7 +376,7 @@ export const usePuterStore = create<PuterStore>((set, get) => {
     const puter = getPuter();
     if (!puter) {
       setError("Puter.js not available");
-      return;
+      return Promise.resolve(undefined);
     }
     return puter.kv.set(key, value);
   };
@@ -385,7 +385,7 @@ export const usePuterStore = create<PuterStore>((set, get) => {
     const puter = getPuter();
     if (!puter) {
       setError("Puter.js not available");
-      return;
+      return Promise.resolve(undefined);
     }
     return puter.kv.delete(key);
   };
@@ -394,7 +394,7 @@ export const usePuterStore = create<PuterStore>((set, get) => {
     const puter = getPuter();
     if (!puter) {
       setError("Puter.js not available");
-      return;
+      return Promise.resolve(undefined);
     }
     if (returnValues === undefined) {
       returnValues = false;
@@ -406,7 +406,7 @@ export const usePuterStore = create<PuterStore>((set, get) => {
     const puter = getPuter();
     if (!puter) {
       setError("Puter.js not available");
-      return;
+      return Promise.resolve(undefined);
     }
     return puter.kv.flush();
   };

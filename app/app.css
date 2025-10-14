@@ -47,7 +47,7 @@ textarea {
 }
 
 form {
-  @apply flex flex-col items-start gap-8 w-full;
+  @apply flex flex-col items-start gap-8 w-full p-4;
 }
 
 @layer components {
