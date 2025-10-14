@@ -20,6 +20,14 @@ const FileUploader = ({ onFileSelect }: FileUploaderProps) => {
   const { getRootProps, getInputProps, isDragActive, acceptedFiles } =
     useDropzone({
       onDrop,
+      onDropRejected: (fileRejections) => {
+        const rejection = fileRejections[0];
+        if (rejection.errors[0]?.code === "file-too-large") {
+          alert("File too large. Please select a smaller file.");
+        } else if (rejection.errors[0]?.code === "file-invalid-type") {
+          alert("Invalid file type. Please select a PDF file.");
+        }
+      },
       multiple: false,
       accept: { "application/pdf": [".pdf"] },
       maxSize: maxFileSize,
@@ -50,6 +58,7 @@ const FileUploader = ({ onFileSelect }: FileUploaderProps) => {
               </div>
               <button
                 className="p-2 cursor-pointer"
+                aria-label="Remove PDF file"
                 onClick={(e) => {
                   onFileSelect?.(null);
                 }}
@@ -64,7 +73,11 @@ const FileUploader = ({ onFileSelect }: FileUploaderProps) => {
           ) : (
             <div>
               <div className="mx-auto w-16 h-16 flex items-center justify-center mb-2">
-                <img src="/icons/info.svg" alt="upload" className="size-20" />
+                <img
+                  src="/icons/info.svg"
+                  alt="information"
+                  className="size-20"
+                />
               </div>
               <p className="text-lg text-gray-500">
                 <span className="font-semibold">Click to upload</span> or drag
