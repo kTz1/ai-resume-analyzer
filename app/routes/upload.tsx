@@ -64,7 +64,7 @@ const Upload = () => {
       prepareInstructions({
         jobTitle,
         jobDescription,
-        AIResponseFormat: "json",
+        AIResponseFormat: "JSON",
       })
     );
     if (!feedback) return setStatusText("Error: Failed to analyze resume!");
@@ -78,7 +78,8 @@ const Upload = () => {
     data.feedback = JSON.parse(feedbackText); // Parse the feedback text into an object
     await kv.set(`resume: ${uuid}`, JSON.stringify(data)); // Update the data in the kv store
     setStatusText("Analysis complete, redirecting ...");
-    console.log(data);
+    //console.log(data);
+    navigate(`/resume/${uuid}`);
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {

@@ -21,8 +21,10 @@ const FileUploader = ({ onFileSelect }: FileUploaderProps) => {
     useDropzone({
       onDrop,
       onDropRejected: (fileRejections) => {
-        const rejection = fileRejections[0];
-        if (rejection.errors[0]?.code === "file-too-large") {
+        const rejection = fileRejections?.[0];
+        if (!rejection?.errors?.[0]) return;
+
+        if (rejection.errors[0].code === "file-too-large") {
           alert("File too large. Please select a smaller file.");
         } else if (rejection.errors[0]?.code === "file-invalid-type") {
           alert("Invalid file type. Please select a PDF file.");
